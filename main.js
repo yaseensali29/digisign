@@ -1,6 +1,41 @@
 // Make the DIV element draggable:
 dragElement(document.getElementById("test"));
 
+var headlineInput = document.getElementById("headline-input");
+var headlineButton = document.getElementById("update-headline");
+var headlineText = document.getElementById("headline-text");
+var headlineControls = document.getElementById("headline-controls");
+
+function updateHeadline() {
+  var nextHeadline = headlineInput.value.trim();
+  if (nextHeadline !== "") {
+    headlineText.textContent = nextHeadline;
+  }
+}
+
+if (headlineInput && headlineButton && headlineText && headlineControls) {
+  headlineButton.onclick = updateHeadline;
+
+  headlineInput.onkeydown = function (event) {
+    if (event.key === "Enter") {
+      updateHeadline();
+    }
+  };
+
+  document.onkeydown = function (event) {
+    if (event.key !== "e" && event.key !== "E") {
+      return;
+    }
+
+    // Typing in the headline box should still insert "e".
+    if (event.target === headlineInput) {
+      return;
+    }
+
+    headlineControls.classList.toggle("hidden");
+  };
+}
+
 function dragElement(elmnt) {
   var offsets;
 

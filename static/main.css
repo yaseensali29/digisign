@@ -19,6 +19,7 @@ body {
     font-family: "Outfit", "Helvetica Neue", "Arial", sans-serif;
     font-weight: 400;
     text-align: center;
+    padding-bottom: 70px;
 }
 
 
@@ -241,6 +242,53 @@ video {
     padding: 12px;
     margin 10px 0;
     box-sizing: border-box;
+}
+
+.headline-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.headline-controls.hidden {
+    display: none;
+}
+
+#headline-input {
+    min-width: 280px;
+    padding: 8px 12px;
+    font-size: 14pt;
+    font-family: "Outfit", "Helvetica Neue", "Arial", sans-serif;
+}
+
+.headline-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: var(--main);
+    color: var(--background);
+    padding: 12px 0;
+}
+
+.headline-text {
+    display: inline-block;
+    margin: 0;
+    padding-left: 100%;
+    animation: scroll-headline 18s linear infinite;
+}
+
+@keyframes scroll-headline {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
 
 @media (orientation: portrait) {
